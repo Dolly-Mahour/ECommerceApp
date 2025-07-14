@@ -9,8 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-  # env:
-  #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout Code
@@ -32,8 +32,9 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/ecommerce-app
-        # with:
-        #   github_token: ${{ secrets.GITHUB_TOKEN }}
+       
+      - name: 🔍 Check dist folder contents
+        run: ls -R dist/
 
 # name: Angular CI/CD
 
