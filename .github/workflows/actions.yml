@@ -57,7 +57,7 @@ jobs:
 
       - name: Build Angular App
         run: |
-          npx ng build ECommerceApp --configuration production --base-href /ECommerceApp/
+          npx ng build ECommerceApp --configuration production 
 
       
       
