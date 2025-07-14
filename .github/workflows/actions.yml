@@ -1,57 +1,19 @@
-# name: ECommerce CI/CD
-
-# on:
-#   push:
-#     branches: 
-#       - master
-#       - BranchTest1
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#   # env:
-#   #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-#     steps:
-#       - name: Checkout Code
-#         uses: actions/checkout@v3
-
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '18'
-
-#       - name: Install Dependencies
-#         run: npm install
-
-#       # - name: Run Tests
-#       #   run: npm run test -- --watch=false --browsers=ChromeHeadless
-
-#       - name: Build Angular App
-#         run: npx ng build ECommerceApp --configuration production
-
-#       - name: Deploy to GitHub Pages
-#         run: npx angular-cli-ghpages --dir=dist/ecommerce-app
-#         # with:
-#         #   github_token: ${{ secrets.GITHUB_TOKEN }}
-
-name: Angular CI/CD
+name: ECommerce CI/CD
 
 on:
   push:
-    branches:
-      - main
+    branches: 
+      - master
       - BranchTest1
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # env:
+  #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -59,17 +21,50 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
+
+      # - name: Run Tests
+      #   run: npm run test -- --watch=false --browsers=ChromeHeadless
 
       - name: Build Angular App
         run: npx ng build ECommerceApp --configuration production
 
-      # - name: 👤 Set Git Identity
-      #   run: |
-      #     git config --global user.email "ci@example.com"
-      #     git config --global user.name "CI Bot"
-
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/ecommerce-app --no-silent
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app
+        # with:
+        #   github_token: ${{ secrets.GITHUB_TOKEN }}
+
+# name: Angular CI/CD
+
+# on:
+#   push:
+#     branches:
+#       - main
+#       - BranchTest1
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+
+#     env:
+#       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '18'
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build Angular App
+#         run: npx ng build ECommerceApp --configuration production
+
+#       - name: Deploy to GitHub Pages
+#         run: npx angular-cli-ghpages --dir=dist/ecommerce-app --no-silent
 
