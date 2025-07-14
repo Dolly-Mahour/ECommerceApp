@@ -44,31 +44,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Step 1: Checkout your code from GitHub
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # ✅ Step 2: Set up Node.js (you can change version if needed)
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # ✅ Step 3: Install Angular project dependencies
       - name: Install Dependencies
         run: npm install
 
-      # ✅ Step 4: Build the Angular project with correct base-href for GitHub Pages
       - name: Build Angular App
         run: |
           npx ng build ECommerceApp --configuration production --base-href /ECommerceApp/
-          echo "✅ Build completed."
 
-      # ✅ Step 5: Debug - List the dist folder contents
-      - name: Show dist folder structure
-        run: |
-          echo "📦 dist/ contents:"
-          ls -l dist/
-          echo "🔍 Checking if index.html exists inside the expected folder:"
-          ls -l dist/ecommerce-app
+      
+      
 
