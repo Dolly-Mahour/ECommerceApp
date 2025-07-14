@@ -27,7 +27,7 @@ jobs:
         run: npm run build -- --configuration production
 
       - name: Deploy to GitHub Pages
-        run: ng serve
-        # uses: angular-schule/ngx-deploy-gh-pages@v1
-        # with:
-        #   github_token: ${{ secrets.GITHUB_TOKEN }}
+        # run: ng serve
+        uses: angular-schule/ngx-deploy-gh-pages@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
