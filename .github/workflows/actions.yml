@@ -3,7 +3,7 @@ name: ECommerce CI/CD
 on:
   push:
     branches: 
-      - main 
+      - master
       - BranchTest1
 
 jobs:
