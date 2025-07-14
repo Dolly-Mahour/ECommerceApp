@@ -26,7 +26,7 @@ jobs:
         run: npx ng build ECommerceApp --configuration production
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/real-output-folder
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app
 
       - name: Check dist folder contents
         run: ls -R dist/
