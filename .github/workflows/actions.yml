@@ -70,5 +70,5 @@ jobs:
           echo "📦 dist/ contents:"
           ls -l dist/
           echo "🔍 Checking if index.html exists inside the expected folder:"
-          ls -l dist/ecom
+          ls -l dist/ecommerce-app
 
