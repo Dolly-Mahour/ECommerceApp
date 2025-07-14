@@ -30,6 +30,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         # run: ng serve
-        run: npx angular-cli-ghpages --dir=dist/your-project-name
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app
         # with:
         #   github_token: ${{ secrets.GITHUB_TOKEN }}
