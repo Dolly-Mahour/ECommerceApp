@@ -50,25 +50,25 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
-      - name: 📥 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: ⚙️ Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: 🧱 Build Angular App
+      - name: Build Angular App
         run: npx ng build ecommerce-app --configuration production
 
-      - name: 👤 Set Git Identity
-        run: |
-          git config --global user.email "ci@example.com"
-          git config --global user.name "CI Bot"
+      # - name: 👤 Set Git Identity
+      #   run: |
+      #     git config --global user.email "ci@example.com"
+      #     git config --global user.name "CI Bot"
 
-      - name: 🚀 Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         run: npx angular-cli-ghpages --dir=dist/ecommerce-app --no-silent
 
