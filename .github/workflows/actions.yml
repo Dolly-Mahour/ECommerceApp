@@ -13,25 +13,25 @@ jobs:
   #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
 
-      - name: Install Dependencies
-        run: npm install
+    - name: Install Dependencies
+      run: npm install
 
-      - name: Build Angular App
-        run: npx ng build ECommerceApp --configuration production
+    - name: Build Angular App
+      run: npx ng build ECommerceApp --configuration production
 
-      - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/ecommerce-app
+    - name: Deploy to GitHub Pages
+      run: npx angular-cli-ghpages --dir=dist/ecommerce-app
        
-      - name: 🔍 Check dist folder contents
-        run: ls -R dist/
+    - name: 🔍 Check dist folder contents
+      run: ls -R dist/
 
 # name: Angular CI/CD
 
