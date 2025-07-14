@@ -41,6 +41,7 @@ on:
   push:
     branches:
       - main
+      - BranchTest1
 
 jobs:
   build-and-deploy:
