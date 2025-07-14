@@ -1,0 +1,32 @@
+<div class="container-fluid m-0 p-0">
+    <app-navbar></app-navbar>
+    <h2 class="text-danger-emphasis"
+        style="width: 100%; display: flex;justify-content: center; margin: 20px;font-family: cursive;font-weight: bold;">
+        Your Cart</h2>
+    <ul class="m-0 p-0">
+
+        <li *ngFor="let items of ItemsInCart_MainCart; let i = index" class="Items">
+            <div class="card m-3" style="height: 450px">
+                <img [src]="items.ImageUrl" class="card-img-top" alt="CardImage"
+                    style="height: 200px;width: 200px;margin-left: auto;margin-right: auto;">
+
+                <div class="card-body">
+                    <h5 class="card-title">₹{{items.ItemPrice}}</h5>
+                    <h6 class="card-title">{{items.ItemName}}</h6>
+                    <p class="card-text">{{items.ItemDescription}}</p>
+                    <!-- <p class="btn btn-success" (click)="AddToCart(items)">Add to cart</p> -->
+                    <h6>Total Qty : {{items.NumberOFItemsAddedInCart}}</h6>
+                    <div style="justify-content: space-between;width: 100%;display: flex;">
+                        <div>
+                            <p class="btn btn-success mx-1" (click)="IncreaseProductQuantity(items)">+</p>
+                            <p class="btn btn-danger me-1" (click)="DecreaseProductQuantity(items)">-</p>
+                        </div>
+
+                        <p class="btn btn-danger me-1" (click)="DeleteItemFromCart(items)">Delelte item</p>
+                    </div>
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

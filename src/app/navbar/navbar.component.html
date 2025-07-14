@@ -1,0 +1,6 @@
+<div class="container-fluid  bg-body-secondary d-flex justify-content-end align-items-center px-4" style="height: 70px;">
+<a routerLink="cart" class="h-50 bg-primary border-0 rounded-2 text-white btn">View Cart</a>
+<div *ngIf="TotalNumberOfItemsAddedInCart > 0" class="mx-2 d-flex justify-content-center align-items-center" style="height: 40px;width: 40px;border-radius: 50%;background-color: rgb(23, 196, 23);">
+    <h5 style="margin: 0;color: white;"> {{TotalNumberOfItemsAddedInCart}}</h5>
+</div>
+</div>
