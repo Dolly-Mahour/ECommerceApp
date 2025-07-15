@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ItemsList } from '../ItemsClass';
 import { ItemsListService } from '../items-list.service';
 import { CommonModule, NgFor } from '@angular/common';
-import { APP_BASE_HREF } from '@angular/common';
 @Component({
   selector: 'app-items-list',
   imports: [CommonModule, NgFor],
@@ -16,20 +15,24 @@ import { APP_BASE_HREF } from '@angular/common';
 
 export class ItemsListComponent implements OnInit {
 
- ListOfProductImages: string[];
-  constructor(private _S_itemslist: ItemsListService,@Inject(APP_BASE_HREF) private baseHref: string) {
-    this.ListOfProductImages = [
-      `${this.baseHref}images/airdops.jpeg`,
-      `${this.baseHref}images/schoolbag.jpeg`,
-      `${this.baseHref}images/socks.jpeg`,
-      `${this.baseHref}images/dress.jpeg`,
-      `${this.baseHref}images/headphones.jpeg`,
-      `${this.baseHref}images/saree.jpeg`,
-    ];
+
+
+
+  constructor(private _S_itemslist: ItemsListService) {
+
   }
 
+
   TotalItemsInTheCart: number = 0
-  // ListOfProductImages: string[] = ['images/airdops.jpeg', 'images/schoolbag.jpeg', 'images/socks.jpeg', 'images/dress.jpeg', 'images/headphones.jpeg', 'images/saree.jpeg']
+  // ListOfProductImages: string[] = ['images/airdops.jpeg', 'images/schoolbag.jpeg', 'images/socks.jpeg', '/images/dress.jpeg', '/images/headphones.jpeg', '/images/saree.jpeg']
+  ListOfProductImages: string[] = [
+    'assets/images/airdops.jpeg',
+    'assets/images/schoolbag.jpeg',
+    'assets/images/socks.jpeg',
+    'assets/images/dress.jpeg',
+    'assets/images/headphones.jpeg',
+    'assets/images/saree.jpeg'
+  ];
   _S_TotalListOfItems!: ItemsList[];
   ItemsInCart_MainCart!: ItemsList[];
   TotalNumberOfItemsInCart_MainCart: number = 0;
@@ -71,7 +74,7 @@ export class ItemsListComponent implements OnInit {
     }
     this._S_itemslist.ItemListAtCartInService = this.ItemsInCart_MainCart
     localStorage.setItem('ItemsAddedAtCart', JSON.stringify(this.ItemsInCart_MainCart))
-    
+
     this._S_itemslist.sendData(this.ItemsInCart_MainCart.length)
     this.TotalItemsInTheCart = this._S_itemslist.TotalNumberOfItemsInCart
   }

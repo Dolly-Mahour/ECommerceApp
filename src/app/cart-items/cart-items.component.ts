@@ -16,8 +16,8 @@ import { APP_BASE_HREF } from '@angular/common';
 
 
 export class CartItemsComponent implements OnInit {
-  ListOfProductImages: string[];
-  constructor(private _S_itemslist: ItemsListService,@Inject(APP_BASE_HREF) private baseHref: string) {
+
+  constructor(private _S_itemslist: ItemsListService, @Inject(APP_BASE_HREF) private baseHref: string) {
     this.ListOfProductImages = [
       `${this.baseHref}images/airdops.jpeg`,
       `${this.baseHref}images/schoolbag.jpeg`,
@@ -65,12 +65,20 @@ export class CartItemsComponent implements OnInit {
 
 
   // ListOfProductImages: string[] = ['images/airdops.jpeg', 'images/schoolbag.jpeg', 'images/socks.jpeg', 'images/dress.jpeg', 'images/headphones.jpeg', 'images/saree.jpeg']
+  ListOfProductImages: string[] = [
+    'assets/images/airdops.jpeg',
+    'assets/images/schoolbag.jpeg',
+    'assets/images/socks.jpeg',
+    'assets/images/dress.jpeg',
+    'assets/images/headphones.jpeg',
+    'assets/images/saree.jpeg'
+  ];
   _S_TotalListOfItems!: ItemsList[];
   ItemsInCart_MainCart!: ItemsList[];
   TotalNumberOfItemsInCart_MainCart: number = 0;
   index!: number;
 
-   
+
 
 
   IncreaseProductQuantity(itemToAdd: ItemsList) {
@@ -126,8 +134,8 @@ export class CartItemsComponent implements OnInit {
 
 
   DeleteItemFromCart(itemToDelete: ItemsList) {
-    console.log("ITEM DELETING -->",itemToDelete);
-    
+    console.log("ITEM DELETING -->", itemToDelete);
+
     itemToDelete.NumberOFItemsAddedInCart = 0;
     itemToDelete.ItemAddedToCart = false;
 
