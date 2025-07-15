@@ -84,7 +84,7 @@ jobs:
           --dir=dist/ecommerce-app/browser \
           --name="GitHub Actions" \
           --email="actions@github.com" \
-          --repo=https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/Dolly-Mahour/ECommerceApp.git \
+          --repo=https://x-access-token:${{ secrets.Deployment }}@github.com/Dolly-Mahour/ECommerceApp.git \
           --branch=gh-pages \
           --no-silent 
 
