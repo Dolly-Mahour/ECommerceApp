@@ -58,7 +58,7 @@ export class ItemsListComponent implements OnInit {
       this._S_itemslist.ItemListAtCartInService = this.ItemsInCart_MainCart
     }
 
-    if (this._S_TotalListOfItems && this._S_TotalListOfItems.length > 0) {
+    // if (this._S_TotalListOfItems && this._S_TotalListOfItems.length > 0) {
       for (let i = 0; i < this._S_TotalListOfItems?.length; i++) {
         if (this.ItemsInCart_MainCart.length > 0) {
           for (let j = 0; j < this.ItemsInCart_MainCart.length; j++) {
@@ -74,7 +74,7 @@ export class ItemsListComponent implements OnInit {
 
         }
       }
-    }
+    // }
     this._S_itemslist.ItemListAtCartInService = this.ItemsInCart_MainCart
     localStorage.setItem('ItemsAddedAtCart', JSON.stringify(this.ItemsInCart_MainCart))
 
