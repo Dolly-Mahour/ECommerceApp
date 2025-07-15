@@ -73,7 +73,7 @@ export class CartItemsComponent implements OnInit {
     'assets/images/headphones.jpeg',
     'assets/images/saree.jpeg'
   ];
-  _S_TotalListOfItems!: ItemsList[];
+   _S_TotalListOfItems: ItemsList[] = [];
   ItemsInCart_MainCart!: ItemsList[];
   TotalNumberOfItemsInCart_MainCart: number = 0;
   index!: number;
