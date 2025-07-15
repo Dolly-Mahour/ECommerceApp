@@ -56,7 +56,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: npx ng build ECommerceApp --configuration production 
+        run: npx ng build ECommerceApp --configuration production --base-href /ECommerceApp/
 
 
       - name: Zip the Build Folder
@@ -70,7 +70,7 @@ jobs:
           name: angular-build
           path: dist/ecommerce-app.zip
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/ecommerce-app/src
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app
 
       
 
