@@ -73,10 +73,6 @@ jobs:
       - name: Check contents of dist
         run: ls -R dist/
 
-      - name: Copy index.html to 404.html (SPA fallback)
-        run: cp dist/ecommerce-app/browser/index.html dist/ecommerce-app/browser/404.html
-
-
       # - name: Set Git Identity
       #   run: |
       #     git config user.email "dollymahour282@gmail.com"
