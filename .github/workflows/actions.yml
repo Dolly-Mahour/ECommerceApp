@@ -71,12 +71,7 @@ jobs:
           path: dist/ecommerce-app.zip
 
       - name: Check contents of dist
-        run: ls -R dist/ecommerce-app
-
-      # - name: Set Git Identity
-      #   run: |
-      #     git config user.email "dollymahour282@gmail.com"
-      #     git config user.name "Dolly-Mahour"
+        run: ls -R dist/ecommerce-app/browser 
 
       - name: Deploy to GitHub Pages
         run: |
