@@ -77,6 +77,8 @@ jobs:
       #   run: |
       #     git config user.email "dollymahour282@gmail.com"
       #     git config user.name "Dolly-Mahour"
+      - name: Copy index.html to 404.html (SPA fallback)
+        run: cp dist/ecommerce-app/browser/index.html dist/ecommerce-app/browser/404.html
 
       - name: Deploy to GitHub Pages
         run: |
