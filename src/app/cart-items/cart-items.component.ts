@@ -31,7 +31,7 @@ export class CartItemsComponent implements OnInit {
     else {
       let str = String(localStorage.getItem('ItemsAddedAtCart'))
       this.ItemsInCart_MainCart = JSON.parse(str)
-      console.log("ON THE CALL OF THE CART-COMPONENT WHAT WE HAVE IN LOCAL STORAGE-->", this.ItemsInCart_MainCart);
+      // console.log("ON THE CALL OF THE CART-COMPONENT WHAT WE HAVE IN LOCAL STORAGE-->", this.ItemsInCart_MainCart);
     }
     for (let i = 0; i < this._S_TotalListOfItems.length; i++) {
       if (this.ItemsInCart_MainCart.length > 0) {
