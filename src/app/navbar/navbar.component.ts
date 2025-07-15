@@ -19,9 +19,13 @@ export class NavbarComponent implements OnInit {
   TotalCount: number = this.Count
   TotalNumberOfItemsAddedInCart: number = 0
   ngOnInit(): void {
+    // if (this._S_ItemList.currentData$) {}
     this._S_ItemList.currentData$.subscribe(data => {
       this.TotalNumberOfItemsAddedInCart = data;
-      console.log('Received live data:', data);
+      if (data != null) {
+        console.log('Received live data:', data);
+
+      }
     });
   }
 }
