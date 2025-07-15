@@ -73,8 +73,13 @@ jobs:
       - name: Check contents of dist
         run: ls -R dist/
 
-      - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/ecommerce-app/browser
+      - name: Set Git Identity
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Deploy to GitHub Pages (with debug)
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app/browser --no-silent --verbose
 
       
 
