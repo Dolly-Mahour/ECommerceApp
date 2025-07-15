@@ -70,7 +70,7 @@ jobs:
           name: angular-build
           path: dist/ecommerce-app.zip
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/ecommerce-app
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app/src
 
       
 
