@@ -71,7 +71,7 @@ jobs:
           path: dist/ecommerce-app.zip
 
       - name: Check contents of dist
-        run: ls -R dist/
+        run: ls -R dist/ecommerce-app
 
       # - name: Set Git Identity
       #   run: |
