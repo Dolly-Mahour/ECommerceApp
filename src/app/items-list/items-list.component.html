@@ -1,6 +1,6 @@
 <div class="container-fluid m-0 p-0">
 
-    <ul class="m-0 p-0">
+    <ul class="m-0 p-0" *ngIf="_S_TotalListOfItems && _S_TotalListOfItems.length > 0">
         
         <li *ngFor="let items of _S_TotalListOfItems; let i = index" class="Items">
             <div class="card m-3" style="height: 450px">
