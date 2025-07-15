@@ -38,21 +38,21 @@ export class CartItemsComponent implements OnInit {
     else {
       let str = String(localStorage.getItem('ItemsAddedAtCart'))
       this.ItemsInCart_MainCart = JSON.parse(str)
-      console.log("ON THE CALL OF THE CART-COMPONENT WHAT WE HAVE IN LOCAL STORAGE-->", this.ItemsInCart_MainCart);
+      // console.log("ON THE CALL OF THE CART-COMPONENT WHAT WE HAVE IN LOCAL STORAGE-->", this.ItemsInCart_MainCart);
     }
     if (this._S_TotalListOfItems && this._S_TotalListOfItems.length > 0) {
       for (let i = 0; i < this._S_TotalListOfItems?.length; i++) {
         if (this.ItemsInCart_MainCart.length > 0) {
           for (let j = 0; j < this.ItemsInCart_MainCart.length; j++) {
             if (this._S_TotalListOfItems[i].ItemName == this.ItemsInCart_MainCart[j].ItemName) {
-              console.log("YESS-->ITEM EXIST IN THE CART", i, this._S_TotalListOfItems[i].ItemName, this.ItemsInCart_MainCart[j]);
+              // console.log("YESS-->ITEM EXIST IN THE CART", i, this._S_TotalListOfItems[i].ItemName, this.ItemsInCart_MainCart[j]);
               this._S_TotalListOfItems[i].NumberOFItemsAddedInCart = this.ItemsInCart_MainCart[j].NumberOFItemsAddedInCart
               break
             }
           }
         }
         else {
-          console.log("CART IS EMPTY-->");
+          // console.log("CART IS EMPTY-->");
 
         }
       }
@@ -82,26 +82,26 @@ export class CartItemsComponent implements OnInit {
 
 
   IncreaseProductQuantity(itemToAdd: ItemsList) {
-    console.log("INCREASING THE QUANTITY-->", itemToAdd.NumberOFItemsAddedInCart);
+    // console.log("INCREASING THE QUANTITY-->", itemToAdd.NumberOFItemsAddedInCart);
 
     this.TotalNumberOfItemsInCart_MainCart = this.TotalNumberOfItemsInCart_MainCart + 1
     itemToAdd.NumberOFItemsAddedInCart = itemToAdd.NumberOFItemsAddedInCart + 1
     // itemToAdd.ImageUrl = Img
     itemToAdd.ItemAddedToCart = true
-    console.log(itemToAdd);
+    // console.log(itemToAdd);
     let index: number;
 
 
     for (let i = 0; i < this._S_TotalListOfItems.length; i++) {
       if (itemToAdd.ItemName == this.ItemsInCart_MainCart[i].ItemName) {
-        console.log("YESS-->ITEM EXIST IN THE CART", i, itemToAdd.ItemName, this.ItemsInCart_MainCart[i],);
+        // console.log("YESS-->ITEM EXIST IN THE CART", i, itemToAdd.ItemName, this.ItemsInCart_MainCart[i],);
         index = Number(i);
         this.ItemsInCart_MainCart.splice(index, 1)
         this.ItemsInCart_MainCart.splice(index, 0, itemToAdd)
         break
       }
       else {
-        console.log("NO ITEM FOUND IN THE CART-->");
+        // console.log("NO ITEM FOUND IN THE CART-->");
 
       }
     }
@@ -134,7 +134,7 @@ export class CartItemsComponent implements OnInit {
 
 
   DeleteItemFromCart(itemToDelete: ItemsList) {
-    console.log("ITEM DELETING -->", itemToDelete);
+    // console.log("ITEM DELETING -->", itemToDelete);
 
     itemToDelete.NumberOFItemsAddedInCart = 0;
     itemToDelete.ItemAddedToCart = false;

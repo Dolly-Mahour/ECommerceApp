@@ -43,10 +43,11 @@ export class ItemsListComponent implements OnInit {
   ngOnInit(): void {
     this._S_TotalListOfItems = this._S_itemslist.List
 
-    console.log("LOCAL STORAGE ITEMS IN THE ITEMLIST-COMPONENT-->", JSON.parse(String(localStorage.getItem('ItemsAddedAtCart'))));
+    // console.log("LOCAL STORAGE ITEMS IN THE ITEMLIST-COMPONENT-->", JSON.parse(String(localStorage.getItem('ItemsAddedAtCart'))));
 
     // if local storage is null--------------------------------------------------------------------------------------
     if (localStorage.getItem('ItemsAddedAtCart') == '') {
+      
       localStorage.setItem('ItemsAddedAtCart', '')
     }
     // if local storage have something in the cart ------------------------------------------------------------------
@@ -62,14 +63,14 @@ export class ItemsListComponent implements OnInit {
         if (this.ItemsInCart_MainCart.length > 0) {
           for (let j = 0; j < this.ItemsInCart_MainCart.length; j++) {
             if (this._S_TotalListOfItems[i].ItemName == this.ItemsInCart_MainCart[j].ItemName) {
-              console.log("YESS-->ITEM EXIST IN THE CART", i, this._S_TotalListOfItems[i].ItemName, this.ItemsInCart_MainCart[j]);
+              // console.log("YESS-->ITEM EXIST IN THE CART", i, this._S_TotalListOfItems[i].ItemName, this.ItemsInCart_MainCart[j]);
               this._S_TotalListOfItems[i].NumberOFItemsAddedInCart = this.ItemsInCart_MainCart[j].NumberOFItemsAddedInCart
               break
             }
           }
         }
         else {
-          console.log("CART IS EMPTY-->");
+          // console.log("CART IS EMPTY-->");
 
         }
       }
@@ -83,7 +84,7 @@ export class ItemsListComponent implements OnInit {
 
 
   IncreaseProductQuantity(itemToAdd: ItemsList, Img: string) {
-    console.log("CALLING THE ADD TO CART METHOD --> adding to product", itemToAdd.ItemName);
+    // console.log("CALLING THE ADD TO CART METHOD --> adding to product", itemToAdd.ItemName);
 
     //index of the item we are adding --------------------------------------------
     const index = this.ItemsInCart_MainCart.findIndex(i => i.ItemName === itemToAdd.ItemName);

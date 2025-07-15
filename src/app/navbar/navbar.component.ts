@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     this._S_ItemList.currentData$.subscribe(data => {
       this.TotalNumberOfItemsAddedInCart = data;
       if (data) {
-        console.log('Received live data:', data);
+        // console.log('Received live data:', data);
       }
     });
   }
