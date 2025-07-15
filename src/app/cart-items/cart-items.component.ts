@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CommonModule } from '@angular/common';
 import { ItemsList } from '../ItemsClass';
 import { ItemsListService } from '../items-list.service';
+import { APP_BASE_HREF } from '@angular/common';
 
 @Component({
   selector: 'app-cart-items',
@@ -15,17 +16,17 @@ import { ItemsListService } from '../items-list.service';
 
 
 export class CartItemsComponent implements OnInit {
-
-
-
-
-
-  constructor(private _S_itemslist: ItemsListService) {
+  ListOfProductImages: string[];
+  constructor(private _S_itemslist: ItemsListService,@Inject(APP_BASE_HREF) private baseHref: string) {
+    this.ListOfProductImages = [
+      `${this.baseHref}images/airdops.jpeg`,
+      `${this.baseHref}images/schoolbag.jpeg`,
+      `${this.baseHref}images/socks.jpeg`,
+      `${this.baseHref}images/dress.jpeg`,
+      `${this.baseHref}images/headphones.jpeg`,
+      `${this.baseHref}images/saree.jpeg`,
+    ];
   }
-
-
-
-
 
   ngOnInit(): void {
     this._S_TotalListOfItems = this._S_itemslist.List
@@ -63,7 +64,7 @@ export class CartItemsComponent implements OnInit {
 
 
 
-  ListOfProductImages: string[] = ['images/airdops.jpeg', 'images/schoolbag.jpeg', 'images/socks.jpeg', 'images/dress.jpeg', 'images/headphones.jpeg', 'images/saree.jpeg']
+  // ListOfProductImages: string[] = ['images/airdops.jpeg', 'images/schoolbag.jpeg', 'images/socks.jpeg', 'images/dress.jpeg', 'images/headphones.jpeg', 'images/saree.jpeg']
   _S_TotalListOfItems!: ItemsList[];
   ItemsInCart_MainCart!: ItemsList[];
   TotalNumberOfItemsInCart_MainCart: number = 0;
