@@ -26,12 +26,12 @@ export class ItemsListComponent implements OnInit {
   TotalItemsInTheCart: number = 0
   // ListOfProductImages: string[] = ['images/airdops.jpeg', 'images/schoolbag.jpeg', 'images/socks.jpeg', '/images/dress.jpeg', '/images/headphones.jpeg', '/images/saree.jpeg']
   ListOfProductImages: string[] = [
-    'ECommerceApp/assets/images/airdops.jpeg',
-    'ECommerceApp/assets/images/schoolbag.jpeg',
-    'ECommerceApp/assets/images/socks.jpeg',
-    'ECommerceApp/assets/images/dress.jpeg',
-    'ECommerceApp/assets/images/headphones.jpeg',
-    'ECommerceApp/assets/images/saree.jpeg'
+    'assets/images/airdops.jpeg',
+    'assets/images/schoolbag.jpeg',
+    'assets/images/socks.jpeg',
+    'assets/images/dress.jpeg',
+    'assets/images/headphones.jpeg',
+    'assets/images/saree.jpeg'
   ];
   _S_TotalListOfItems: ItemsList[] = [];
   ItemsInCart_MainCart!: ItemsList[];

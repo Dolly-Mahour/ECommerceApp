@@ -56,7 +56,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: npx ng build ECommerceApp --configuration production --base-href /ECommerceApp/
+        run: npx ng build ECommerceApp --configuration production --base-href .
 
 
       - name: Zip the Build Folder
