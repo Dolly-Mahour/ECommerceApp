@@ -57,19 +57,21 @@ export class ItemsListComponent implements OnInit {
       this._S_itemslist.ItemListAtCartInService = this.ItemsInCart_MainCart
     }
 
-    for (let i = 0; i < this._S_TotalListOfItems.length; i++) {
-      if (this.ItemsInCart_MainCart.length > 0) {
-        for (let j = 0; j < this.ItemsInCart_MainCart.length; j++) {
-          if (this._S_TotalListOfItems[i].ItemName == this.ItemsInCart_MainCart[j].ItemName) {
-            console.log("YESS-->ITEM EXIST IN THE CART", i, this._S_TotalListOfItems[i].ItemName, this.ItemsInCart_MainCart[j]);
-            this._S_TotalListOfItems[i].NumberOFItemsAddedInCart = this.ItemsInCart_MainCart[j].NumberOFItemsAddedInCart
-            break
+    if (this._S_TotalListOfItems && this._S_TotalListOfItems.length > 0) {
+      for (let i = 0; i < this._S_TotalListOfItems.length; i++) {
+        if (this.ItemsInCart_MainCart.length > 0) {
+          for (let j = 0; j < this.ItemsInCart_MainCart.length; j++) {
+            if (this._S_TotalListOfItems[i].ItemName == this.ItemsInCart_MainCart[j].ItemName) {
+              console.log("YESS-->ITEM EXIST IN THE CART", i, this._S_TotalListOfItems[i].ItemName, this.ItemsInCart_MainCart[j]);
+              this._S_TotalListOfItems[i].NumberOFItemsAddedInCart = this.ItemsInCart_MainCart[j].NumberOFItemsAddedInCart
+              break
+            }
           }
         }
-      }
-      else {
-        console.log("CART IS EMPTY-->");
+        else {
+          console.log("CART IS EMPTY-->");
 
+        }
       }
     }
     this._S_itemslist.ItemListAtCartInService = this.ItemsInCart_MainCart
