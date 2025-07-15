@@ -79,7 +79,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Deploy to GitHub Pages (with debug)
-        run: npx angular-cli-ghpages --dir=dist/ecommerce-app/browser --no-silent --verbose
+        run: npx angular-cli-ghpages --dir=dist/ecommerce-app/browser --no-silent 
 
       
 
