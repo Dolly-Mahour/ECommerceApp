@@ -63,7 +63,7 @@ export class ItemsListService implements OnInit {
   ];
 
   ItemListAtCartInService: ItemsList[] = [];
-  TotalNumberOfItemsInCart!: number
+  TotalNumberOfItemsInCart: number=0;
   updateCart(CartList: ItemsList[]) {
     this.ItemListAtCartInService = CartList;
     localStorage.setItem('ItemsAddedAtCart', JSON.stringify(CartList));
