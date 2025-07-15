@@ -1,100 +1,48 @@
-
-# name: ECommerce CI/CD
-
-# on:
-#   push:
-#     branches:
-#       - master
-#       - BranchTest1
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Checkout Code
-#         uses: actions/checkout@v3
-
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '18'
-
-#       - name: Install Dependencies
-#         run: npm install
-
-#       - name: Build Angular App
-#         run: npx ng build ECommerceApp --configuration production --base-href /ECommerceApp/
-
-
-#       - name: Zip the Build Folder
-#         run: |
-#           cd dist
-#           zip -r ecommerce-app.zip ecommerce-app
-
-#       - name: Upload Build Artifact
-#         uses: actions/upload-artifact@v4
-#         with:
-#           name: angular-build
-#           path: dist/ecommerce-app.zip
-
-#       - name: Check contents of dist
-#         run: ls -R dist/
-      
-#       - name: Check contents of dist
-#         run: ls -l dist/ecommerce-app
-
-#       - name: Deploy to GitHub Pages
-#         run: |
-#           npx angular-cli-ghpages \
-#           --dir=dist/ecommerce-app \
-#           --name="GitHub Actions" \
-#           --email="actions@github.com" \
-#           --repo=https://x-access-token:${{ secrets.Deployment }}@github.com/Dolly-Mahour/ECommerceApp.git \
-#           --branch=gh-pages \
-#           --no-silent 
-
-
-
-
-
+# i can give any name to this pipelinw and workflow
 name: ECommerce CI/CD
 
+# on which events it will get trigger
 on:
+# on the push event 
   push:
+  # push into which branch ?? can define multiple branches
     branches:
       - master
       - BranchTest1
-
+# on the trigger of the event which steps to be done in the automation project ----
 jobs:
+# we can give the any name we want to this job -- as i give build --
   build:
+  # it needs an vm to perform all the jobs and actions so ubunntu is the vm using 
     runs-on: ubuntu-latest
-
+  # now which steps to be needed and being automated on the push event --
     steps:
+    # STEP 1 TO CHECKING THE CODE 
       - name: Checkout Code
         uses: actions/checkout@v3
-
+    # STEP 2 FOR SETTING UP THE NODE 
       - name: Setup Node.js
         uses: actions/setup-node@v3
+        # with version definition--
         with:
           node-version: '18'
-
+    # STEP 3 INSTALL ALL THE PACKAGES AND MODULES ----
       - name: Install Dependencies
         run: npm install
-
+    # STEP 3 BUILD THE APPLICATION ---------
       - name: Build Angular App
         run: npx ng build ECommerceApp --configuration production --base-href /ECommerceApp/
-
+    # STEP 4 COPIES THE INDEX.HTML TO 404.HTML----
       - name: SPA fallback for GitHub Pages
         run: cp dist/ecommerce-app/browser/index.html dist/ecommerce-app/browser/404.html
-
+    # STEP 5 TO CHECK WHAT IS THE DIST FOLDER RETURNING --------
       - name: Check dist output
         run: ls -R dist/ecommerce-app/browser
-
+    # STEP 6 AND FINAL STEP TO DEPLOY ON GITHUB PAGES ----
       - name: Deploy to GitHub Pages
         run: |
           npx angular-cli-ghpages \
-            --dir=dist/ecommerce-app/browser \
+            --dir=dist/ecom merce-app/browser \
             --name="GitHub Actions" \
             --email="actions@github.com" \
             --repo=https://x-access-token:${{ secrets.Deployment }}@github.com/Dolly-Mahour/ECommerceApp.git \
