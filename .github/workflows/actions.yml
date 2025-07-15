@@ -42,7 +42,7 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           npx angular-cli-ghpages \
-            --dir=dist/ecom merce-app \
+            --dir=dist/ecommerce-app/browser \
             --name="GitHub Actions" \
             --email="actions@github.com" \
             --repo=https://x-access-token:${{ secrets.Deployment }}@github.com/Dolly-Mahour/ECommerceApp.git \
